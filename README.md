@@ -294,7 +294,7 @@ Empty set (0.00 sec)
 
 
 | Field       | Type        | Null | Key | Default | Extra |
-|:--:|:--:|:--:|
+|:--:|:--:|:--:|:--:|:--:|:--:|
 | id          | tinyint     | NO   | PRI | NULL    |       |
 | name        | varchar(30) | YES  |     | NULL    |       |
 | blood_group | varchar(2)  | NO   |     | NULL    |       |
