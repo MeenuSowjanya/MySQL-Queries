@@ -3,264 +3,264 @@
 ### Basic Queries
 
 show databases;<br>
-+--------------------+
-| Database           |
-+--------------------+
-| information_schema |
-| mysql              |
-| performance_schema |
-| sys                |
-| test               |
++--------------------+<br>
+| Database           |<br>
++--------------------+<br>
+| information_schema |<br>
+| mysql              |<br>
+| performance_schema |<br>
+| sys                |<br>
+| test               |<br>
 +--------------------+<br>
 5 rows in set (0.00 sec)<br>
 
-mysql> create database document;   --DDL Command
-Query OK, 1 row affected (0.01 sec)
+mysql> create database document;   --DDL Command<br>
+Query OK, 1 row affected (0.01 sec)<br>
 
-mysql> use document;
-Database changed
-mysql> show tables;
-Empty set (0.00 sec)
+mysql> use document;<br>
+Database changed<br>
+mysql> show tables;<br>
+Empty set (0.00 sec)<br>
 
-mysql> create table friends(id tinyint primary key,name varchar(30) not null,favourite_color varchar(20) default "Black");        --DDL Command
-Query OK, 0 rows affected (0.05 sec)
+mysql> create table friends(id tinyint primary key,name varchar(30) not null,favourite_color varchar(20) default "Black");        --DDL Command <br>
+Query OK, 0 rows affected (0.05 sec)<br>
 
-mysql> desc friends;
-+-----------------+-------------+------+-----+---------+-------+
-| Field           | Type        | Null | Key | Default | Extra |
-+-----------------+-------------+------+-----+---------+-------+
-| id              | tinyint     | NO   | PRI | NULL    |       |
-| name            | varchar(30) | NO   |     | NULL    |       |
-| favourite_color | varchar(20) | YES  |     | Black   |       |
-+-----------------+-------------+------+-----+---------+-------+
-3 rows in set (0.01 sec)
+mysql> desc friends;<br>
++-----------------+-------------+------+-----+---------+-------+<br>
+| Field           | Type        | Null | Key | Default | Extra |<br>
++-----------------+-------------+------+-----+---------+-------+<br>
+| id              | tinyint     | NO   | PRI | NULL    |       |<br>
+| name            | varchar(30) | NO   |     | NULL    |       |<br>
+| favourite_color | varchar(20) | YES  |     | Black   |       |<br>
++-----------------+-------------+------+-----+---------+-------+<br>
+3 rows in set (0.01 sec)<br>
 
-mysql> show tables;
-+--------------------+
-| Tables_in_document |
-+--------------------+
-| friends            |
-+--------------------+
-1 row in set (0.00 sec)
+mysql> show tables;<br>
++--------------------+<br>
+| Tables_in_document |<br>
++--------------------+<br>
+| friends            |<br>
++--------------------+<br>
+1 row in set (0.00 sec)<br>
 
-mysql> insert into friends values(1,"Ismail","Purple");      --DML Command
-Query OK, 1 row affected (0.03 sec)
+mysql> insert into friends values(1,"Ismail","Purple");      --DML Command<br>
+Query OK, 1 row affected (0.03 sec)<br>
 
-mysql> insert into friends values(2,"Rishi","Green");
-Query OK, 1 row affected (0.01 sec)
+mysql> insert into friends values(2,"Rishi","Green");<br>
+Query OK, 1 row affected (0.01 sec)<br>
 
-mysql> insert into friends values(3,"Vaishnavi","Blue");
-Query OK, 1 row affected (0.00 sec)
+mysql> insert into friends values(3,"Vaishnavi","Blue");<br>
+Query OK, 1 row affected (0.00 sec)<br>
 
-mysql> insert into friends(id,name) values(4,"Meenu");
-Query OK, 1 row affected (0.01 sec)
+mysql> insert into friends(id,name) values(4,"Meenu");<br>
+Query OK, 1 row affected (0.01 sec)<br>
 
-mysql> select * from friends;     --DML Command
-+----+-----------+-----------------+
-| id | name      | favourite_color |
-+----+-----------+-----------------+
-|  1 | Ismail    | Purple          |
-|  2 | Rishi     | Green           |
-|  3 | Vaishnavi | Blue            |
-|  4 | Meenu     | Black           |
-+----+-----------+-----------------+
-4 rows in set (0.00 sec)
+mysql> select * from friends;     --DML Command<br>
++----+-----------+-----------------+<br>
+| id | name      | favourite_color |<br>
++----+-----------+-----------------+<br>
+|  1 | Ismail    | Purple          |<br>
+|  2 | Rishi     | Green           |<br>
+|  3 | Vaishnavi | Blue            |<br>
+|  4 | Meenu     | Black           |<br>
++----+-----------+-----------------+<br>
+4 rows in set (0.00 sec)<br>
 
-mysql> update friends set name="Girls"  --DML Command
-    -> where id between 1 and 3;
-Query OK, 3 rows affected (0.01 sec)
-Rows matched: 3  Changed: 3  Warnings: 0
+mysql> update friends set name="Girls"  --DML Command<br>
+    -> where id between 1 and 3;<br>
+Query OK, 3 rows affected (0.01 sec)<br>
+Rows matched: 3  Changed: 3  Warnings: 0<br>
 
-mysql> select * from friends;
-+----+-------+-----------------+
-| id | name  | favourite_color |
-+----+-------+-----------------+
-|  1 | Girls | Purple          |
-|  2 | Girls | Green           |
-|  3 | Girls | Blue            |
-|  4 | Meenu | Black           |
-+----+-------+-----------------+
-4 rows in set (0.00 sec)
+mysql> select * from friends;<br>
++----+-------+-----------------+<br>
+| id | name  | favourite_color |<br>
++----+-------+-----------------+<br>
+|  1 | Girls | Purple          |<br>
+|  2 | Girls | Green           |<br>
+|  3 | Girls | Blue            |<br>
+|  4 | Meenu | Black           |<br>
++----+-------+-----------------+<br>
+4 rows in set (0.00 sec)<br>
 
-mysql> alter table friends add (marks tinyint check (marks>30));   --DDL Command
-Query OK, 4 rows affected (0.10 sec)
-Records: 4  Duplicates: 0  Warnings: 0
+mysql> alter table friends add (marks tinyint check (marks>30));   --DDL Command<br>
+Query OK, 4 rows affected (0.10 sec)<br>
+Records: 4  Duplicates: 0  Warnings: 0<br>
 
-mysql> desc friends;
-+-----------------+-------------+------+-----+---------+-------+
-| Field           | Type        | Null | Key | Default | Extra |
-+-----------------+-------------+------+-----+---------+-------+
-| id              | tinyint     | NO   | PRI | NULL    |       |
-| name            | varchar(30) | NO   |     | NULL    |       |
-| favourite_color | varchar(20) | YES  |     | Black   |       |
-| marks           | tinyint     | YES  |     | NULL    |       |
-+-----------------+-------------+------+-----+---------+-------+
-4 rows in set (0.00 sec)
+mysql> desc friends;<br>
++-----------------+-------------+------+-----+---------+-------+<br>
+| Field           | Type        | Null | Key | Default | Extra |<br>
++-----------------+-------------+------+-----+---------+-------+<br>
+| id              | tinyint     | NO   | PRI | NULL    |       |<br>
+| name            | varchar(30) | NO   |     | NULL    |       |<br>
+| favourite_color | varchar(20) | YES  |     | Black   |       |<br>
+| marks           | tinyint     | YES  |     | NULL    |       |<br>
++-----------------+-------------+------+-----+---------+-------+<br>
+4 rows in set (0.00 sec)<br>
 
-mysql> alter table friends change favourite_color favColor varchar(30);
-Query OK, 0 rows affected (0.02 sec)
-Records: 0  Duplicates: 0  Warnings: 0
+mysql> alter table friends change favourite_color favColor varchar(30);<br>
+Query OK, 0 rows affected (0.02 sec)<br>
+Records: 0  Duplicates: 0  Warnings: 0<br>
 
-mysql> desc friends;
-+----------+-------------+------+-----+---------+-------+
-| Field    | Type        | Null | Key | Default | Extra |
-+----------+-------------+------+-----+---------+-------+
-| id       | tinyint     | NO   | PRI | NULL    |       |
-| name     | varchar(30) | NO   |     | NULL    |       |
-| favColor | varchar(30) | YES  |     | NULL    |       |
-| marks    | tinyint     | YES  |     | NULL    |       |
-+----------+-------------+------+-----+---------+-------+
-4 rows in set (0.01 sec)
+mysql> desc friends;<br>
++----------+-------------+------+-----+---------+-------+<br>
+| Field    | Type        | Null | Key | Default | Extra |<br>
++----------+-------------+------+-----+---------+-------+<br>
+| id       | tinyint     | NO   | PRI | NULL    |       |<br>
+| name     | varchar(30) | NO   |     | NULL    |       |<br>
+| favColor | varchar(30) | YES  |     | NULL    |       |<br>
+| marks    | tinyint     | YES  |     | NULL    |       |<br>
++----------+-------------+------+-----+---------+-------+<br>
+4 rows in set (0.01 sec)<br>
 
-mysql> alter table friends modify favColor varchar(12);
-Query OK, 4 rows affected (0.11 sec)
-Records: 4  Duplicates: 0  Warnings: 0
+mysql> alter table friends modify favColor varchar(12);<br>
+Query OK, 4 rows affected (0.11 sec)<br>
+Records: 4  Duplicates: 0  Warnings: 0<br>
 
-mysql> desc friends;
-+----------+-------------+------+-----+---------+-------+
-| Field    | Type        | Null | Key | Default | Extra |
-+----------+-------------+------+-----+---------+-------+
-| id       | tinyint     | NO   | PRI | NULL    |       |
-| name     | varchar(30) | NO   |     | NULL    |       |
-| favColor | varchar(12) | YES  |     | NULL    |       |
-| marks    | tinyint     | YES  |     | NULL    |       |
-+----------+-------------+------+-----+---------+-------+
-4 rows in set (0.00 sec)
+mysql> desc friends;<br>
++----------+-------------+------+-----+---------+-------+<br>
+| Field    | Type        | Null | Key | Default | Extra |<br>
++----------+-------------+------+-----+---------+-------+<br>
+| id       | tinyint     | NO   | PRI | NULL    |       |<br>
+| name     | varchar(30) | NO   |     | NULL    |       |<br>
+| favColor | varchar(12) | YES  |     | NULL    |       |<br>
+| marks    | tinyint     | YES  |     | NULL    |       |<br>
++----------+-------------+------+-----+---------+-------+<br>
+4 rows in set (0.00 sec)<br>
 
-mysql> select * from friends;
-+----+-------+----------+-------+
-| id | name  | favColor | marks |
-+----+-------+----------+-------+
-|  1 | Girls | Purple   |  NULL |
-|  2 | Girls | Green    |  NULL |
-|  3 | Girls | Blue     |  NULL |
-|  4 | Meenu | Black    |  NULL |
-+----+-------+----------+-------+
-4 rows in set (0.00 sec)
+mysql> select * from friends;<br>
++----+-------+----------+-------+<br>
+| id | name  | favColor | marks |<br>
++----+-------+----------+-------+<br>
+|  1 | Girls | Purple   |  NULL |<br>
+|  2 | Girls | Green    |  NULL |<br>
+|  3 | Girls | Blue     |  NULL |<br>
+|  4 | Meenu | Black    |  NULL |<br>
++----+-------+----------+-------+<br>
+4 rows in set (0.00 sec)<br>
 
-mysql> update friends set marks=100;
-Query OK, 4 rows affected (0.00 sec)
-Rows matched: 4  Changed: 4  Warnings: 0
+mysql> update friends set marks=100;<br>
+Query OK, 4 rows affected (0.00 sec)<br>
+Rows matched: 4  Changed: 4  Warnings: 0<br>
+<br>
+mysql> select * from friends;<br>
++----+-------+----------+-------+<br>
+| id | name  | favColor | marks |<br>
++----+-------+----------+-------+<br>
+|  1 | Girls | Purple   |   100 |<br>
+|  2 | Girls | Green    |   100 |<br>
+|  3 | Girls | Blue     |   100 |<br>
+|  4 | Meenu | Black    |   100 |<br>
++----+-------+----------+-------+<br>
+4 rows in set (0.00 sec)<br>
 
-mysql> select * from friends;
-+----+-------+----------+-------+
-| id | name  | favColor | marks |
-+----+-------+----------+-------+
-|  1 | Girls | Purple   |   100 |
-|  2 | Girls | Green    |   100 |
-|  3 | Girls | Blue     |   100 |
-|  4 | Meenu | Black    |   100 |
-+----+-------+----------+-------+
-4 rows in set (0.00 sec)
+mysql> use test;<br>
+Reading table information for completion of table and column names<br>
+You can turn off this feature to get a quicker startup with -A<br>
 
-mysql> use test;
-Reading table information for completion of table and column names
-You can turn off this feature to get a quicker startup with -A
+Database changed<br>
+mysql> show tables;<br>
++----------------+<br>
+| Tables_in_test |<br>
++----------------+<br>
+| Meenu          |<br>
+| Pr             |<br>
+| Sowjanya       |<br>
+| students       |<br>
++----------------+<br>
+4 rows in set (0.01 sec)<br>
 
-Database changed
-mysql> show tables;
-+----------------+
-| Tables_in_test |
-+----------------+
-| Meenu          |
-| Pr             |
-| Sowjanya       |
-| students       |
-+----------------+
-4 rows in set (0.01 sec)
+mysql> drop table Pr;     --DDL Command<br>
+Query OK, 0 rows affected (0.03 sec)<br>
 
-mysql> drop table Pr;     --DDL Command
-Query OK, 0 rows affected (0.03 sec)
+mysql> show tables;<br>
++----------------+<br>
+| Tables_in_test |<br>
++----------------+<br>
+| Meenu          |<br>
+| Sowjanya       |<br>
+| students       |<br>
++----------------+<br>
+3 rows in set (0.00 sec)<br>
 
-mysql> show tables;
-+----------------+
-| Tables_in_test |
-+----------------+
-| Meenu          |
-| Sowjanya       |
-| students       |
-+----------------+
-3 rows in set (0.00 sec)
+mysql> select * from students;<br>
++----+-------------------------+-------+-------+-------+<br>
+| id | name                    | class | mark1 | mark2 |<br>
++----+-------------------------+-------+-------+-------+<br>
+|  1 | Arun Kumar              | X     |    12 |    24 |<br>
+|  2 | Aro Jobin               | X     |    10 |    10 |<br>
+|  3 | Arockiya Joshua         | X     |    10 |     5 |<br>
+|  4 | Antony Kaplisom         | X     |    10 |    23 |<br>
+|  5 | Keerthana               | X     |     0 |     0 |<br>
+|  6 | Kaushik                 | X     |    12 |     2 |<br>
+|  7 | Dhanush                 | X     |    12 |     2 |<br>
+|  8 | Freddy                  | X     |    12 |     2 |<br>
+|  9 | Gopi                    | X     |    72 |     5 |<br>
+| 10 | Mukesh                  | X     |     2 |     5 |<br>
+| 11 | Mounicka                | X     |     0 |     0 |<br>
+| 12 | Meenu Sowjanya          | X     |   100 |   100 |<br>
+| 13 | Pradeep Selva Kumar     | X     |   100 |   100 |<br>
+| 14 | Lincy Niranjana         | X     |    10 |    10 |<br>
+| 15 | Prescilla               | X     |    10 |    10 |<br>
+| 16 | Linu Uprasi             | X     |    10 |    10 |<br>
+| 17 | Nivethita               | X     |    10 |    10 |<br>
+| 18 | Sneha                   | X     |    10 |    10 |<br>
+| 19 | Revathi                 | X     |   100 |   100 |<br>
+| 20 | Indhira Priya Dharshini | X     |     0 |     0 |<br>
+| 21 | Rithika                 | X     |     0 |     0 |<br>
+| 22 | Meena                   | X     |     0 |     0 |<br>
+| 23 | Mohammed Raffiee        | X     |     0 |     0 |<br>
+| 24 | Mohammed Riffayudeen    | X     |     0 |     0 |<br>
+| 25 | Kamalesh                | X     |     0 |     0 |<br>
+| 26 | Rajapalani              | X     |     0 |     0 |<br>
+| 27 | Vibeena                 | X     |     0 |     0 |<br>
+| 28 | Rohan Britto            | X     |   100 |   100 |<br>
+| 29 | Abishek Ilambirithi     | X     |   100 |   100 |<br>
+| 30 | Shrinithi               | X     |    30 |    75 |<br>
+| 31 | Hemashree               | X     |    20 |    15 |<br>
+| 32 | Shajitha                | X     |    -2 |    -5 |<br>
+| 33 | Rohith Kumar            | X     |    75 |    40 |<br>
+| 34 | Shyamala                | X     |    40 |    40 |<br>
+| 35 | Jerry Winston           | X     |    40 |    40 |<br>
+| 36 | Sam Wilson              | X     |    30 |    10 |<br>
+| 37 | Vishwa                  | X     |   100 |   100 |<br>
+| 38 | Isai Visahan            | X     |    10 |     5 |<br>
+| 39 | Pooja                   | X     |     0 |     0 |<br>
+| 40 | Deva Dharshini          | X     |   -10 |   -10 |<br>
+| 41 | DevaDharshini           | X     |   -10 |   -10 |<br>
+| 42 | Abdul Majeeth           | X     |   100 |   100 |<br>
+| 43 | Subashan                | X     |     0 |     0 |<br>
+| 44 | Hemachandran            | X     |   100 |   100 |<br>
+| 45 | Dhinesh                 | X     |    10 |    10 |<br>
+| 46 | Swarna                  | X     |     0 |     0 |<br>
+| 47 | Swathika                | X     |     0 |     0 |<br>
+| 48 | Adithya                 | X     |     0 |     0 |<br>
+| 49 | Richard                 | X     |     0 |     0 |<br>
+| 50 | Saran Kumar             | X     |     0 |     0 |<br>
++----+-------------------------+-------+-------+-------+<br>
+50 rows in set (0.00 sec)<br>
 
-mysql> select * from students;
-+----+-------------------------+-------+-------+-------+
-| id | name                    | class | mark1 | mark2 |
-+----+-------------------------+-------+-------+-------+
-|  1 | Arun Kumar              | X     |    12 |    24 |
-|  2 | Aro Jobin               | X     |    10 |    10 |
-|  3 | Arockiya Joshua         | X     |    10 |     5 |
-|  4 | Antony Kaplisom         | X     |    10 |    23 |
-|  5 | Keerthana               | X     |     0 |     0 |
-|  6 | Kaushik                 | X     |    12 |     2 |
-|  7 | Dhanush                 | X     |    12 |     2 |
-|  8 | Freddy                  | X     |    12 |     2 |
-|  9 | Gopi                    | X     |    72 |     5 |
-| 10 | Mukesh                  | X     |     2 |     5 |
-| 11 | Mounicka                | X     |     0 |     0 |
-| 12 | Meenu Sowjanya          | X     |   100 |   100 |
-| 13 | Pradeep Selva Kumar     | X     |   100 |   100 |
-| 14 | Lincy Niranjana         | X     |    10 |    10 |
-| 15 | Prescilla               | X     |    10 |    10 |
-| 16 | Linu Uprasi             | X     |    10 |    10 |
-| 17 | Nivethita               | X     |    10 |    10 |
-| 18 | Sneha                   | X     |    10 |    10 |
-| 19 | Revathi                 | X     |   100 |   100 |
-| 20 | Indhira Priya Dharshini | X     |     0 |     0 |
-| 21 | Rithika                 | X     |     0 |     0 |
-| 22 | Meena                   | X     |     0 |     0 |
-| 23 | Mohammed Raffiee        | X     |     0 |     0 |
-| 24 | Mohammed Riffayudeen    | X     |     0 |     0 |
-| 25 | Kamalesh                | X     |     0 |     0 |
-| 26 | Rajapalani              | X     |     0 |     0 |
-| 27 | Vibeena                 | X     |     0 |     0 |
-| 28 | Rohan Britto            | X     |   100 |   100 |
-| 29 | Abishek Ilambirithi     | X     |   100 |   100 |
-| 30 | Shrinithi               | X     |    30 |    75 |
-| 31 | Hemashree               | X     |    20 |    15 |
-| 32 | Shajitha                | X     |    -2 |    -5 |
-| 33 | Rohith Kumar            | X     |    75 |    40 |
-| 34 | Shyamala                | X     |    40 |    40 |
-| 35 | Jerry Winston           | X     |    40 |    40 |
-| 36 | Sam Wilson              | X     |    30 |    10 |
-| 37 | Vishwa                  | X     |   100 |   100 |
-| 38 | Isai Visahan            | X     |    10 |     5 |
-| 39 | Pooja                   | X     |     0 |     0 |
-| 40 | Deva Dharshini          | X     |   -10 |   -10 |
-| 41 | DevaDharshini           | X     |   -10 |   -10 |
-| 42 | Abdul Majeeth           | X     |   100 |   100 |
-| 43 | Subashan                | X     |     0 |     0 |
-| 44 | Hemachandran            | X     |   100 |   100 |
-| 45 | Dhinesh                 | X     |    10 |    10 |
-| 46 | Swarna                  | X     |     0 |     0 |
-| 47 | Swathika                | X     |     0 |     0 |
-| 48 | Adithya                 | X     |     0 |     0 |
-| 49 | Richard                 | X     |     0 |     0 |
-| 50 | Saran Kumar             | X     |     0 |     0 |
-+----+-------------------------+-------+-------+-------+
-50 rows in set (0.00 sec)
+mysql> delete from students where id between 14 and 50;<br>
+Query OK, 37 rows affected (0.01 sec)<br>
 
-mysql> delete from students where id between 14 and 50;
-Query OK, 37 rows affected (0.01 sec)
-
-mysql> select * from students;
-+----+---------------------+-------+-------+-------+
-| id | name                | class | mark1 | mark2 |
-+----+---------------------+-------+-------+-------+
-|  1 | Arun Kumar          | X     |    12 |    24 |
-|  2 | Aro Jobin           | X     |    10 |    10 |
-|  3 | Arockiya Joshua     | X     |    10 |     5 |
-|  4 | Antony Kaplisom     | X     |    10 |    23 |
-|  5 | Keerthana           | X     |     0 |     0 |
-|  6 | Kaushik             | X     |    12 |     2 |
-|  7 | Dhanush             | X     |    12 |     2 |
-|  8 | Freddy              | X     |    12 |     2 |
-|  9 | Gopi                | X     |    72 |     5 |
-| 10 | Mukesh              | X     |     2 |     5 |
-| 11 | Mounicka            | X     |     0 |     0 |
-| 12 | Meenu Sowjanya      | X     |   100 |   100 |
-| 13 | Pradeep Selva Kumar | X     |   100 |   100 |
-+----+---------------------+-------+-------+-------+
-13 rows in set (0.00 sec)
+mysql> select * from students;<br>
++----+---------------------+-------+-------+-------+<br>
+| id | name                | class | mark1 | mark2 |<br>
++----+---------------------+-------+-------+-------+<br>
+|  1 | Arun Kumar          | X     |    12 |    24 |<br>
+|  2 | Aro Jobin           | X     |    10 |    10 |<br>
+|  3 | Arockiya Joshua     | X     |    10 |     5 |<br>
+|  4 | Antony Kaplisom     | X     |    10 |    23 |<br>
+|  5 | Keerthana           | X     |     0 |     0 |<br>
+|  6 | Kaushik             | X     |    12 |     2 |<br>
+|  7 | Dhanush             | X     |    12 |     2 |<br>
+|  8 | Freddy              | X     |    12 |     2 |<br>
+|  9 | Gopi                | X     |    72 |     5 |<br>
+| 10 | Mukesh              | X     |     2 |     5 |<br>
+| 11 | Mounicka            | X     |     0 |     0 |<br>
+| 12 | Meenu Sowjanya      | X     |   100 |   100 |<br>
+| 13 | Pradeep Selva Kumar | X     |   100 |   100 |<br>
++----+---------------------+-------+-------+-------+<br>
+13 rows in set (0.00 sec)<br>
 
 mysql> desc students;
 +-------+-------------+------+-----+---------+-------+
