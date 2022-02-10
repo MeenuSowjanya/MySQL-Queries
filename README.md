@@ -122,6 +122,80 @@
 
 1 row in set (0.00 sec)
 
+### ``` SELECT * FROM students WHERE name LIKE("R%") OR name LIKE("%P") OR name LIKE("ME__U%"); ```
+
+
+| id | name    | class |
+|:--:|:--:|:--:|
+|  1 | Meenu   |    12 |
+|  2 | Pradeep |    12 |
+|  3 | Rohan   |    12 |
+
+3 rows in set (0.00 sec)
+
+### ```SELECT * FROM students WHERE id> ANY(SELECT marks FROM mark_list);```
+
+Empty set (0.00 sec)
+
+### ```SELECT * FROM students WHERE id< ANY(SELECT marks FROM mark_list);```
+
+
+| id | name    | class |
+|:--:|:--:|:--:|
+|  1 | Meenu   |    12 |
+|  2 | Pradeep |    12 |
+|  3 | Rohan   |    12 |
+|  4 | Kumar   |    12 |
+
+4 rows in set (0.00 sec)
+
+### ``` SELECT * FROM students WHERE id IN(SELECT marks FROM mark_list); ```
+ 
+Empty set (0.00 sec)
+
+### ``` SELECT * FROM students WHERE id NOT IN(SELECT marks FROM mark_list); ```
+
+
+| id | name    | class |
+|:--:|:--:|:--:|
+|  1 | Meenu   |    12 |
+|  2 | Pradeep |    12 |
+|  3 | Rohan   |    12 |
+|  4 | Kumar   |    12 |
+
+4 rows in set (0.00 sec)
+
+### ``` SELECT * FROM students WHERE id< ALL(SELECT marks FROM mark_list); ```
+
+| id | name    | class |
+|:--:|:--:|:--:|
+|  1 | Meenu   |    12 |
+|  2 | Pradeep |    12 |
+|  3 | Rohan   |    12 |
+|  4 | Kumar   |    12 |
+
+4 rows in set (0.00 sec)
+
+### ``` SELECT * FROM students WHERE EXISTS(SELECT name FROM mark_list WHERE name LIKE("P%")); ```
+
+
+| id | name    | class |
+|:--:|:--:|:--:|
+|  2 | Pradeep |    12 |
+
+1 row in set (0.00 sec)
+
+### ``` SELECT * FROM students WHERE NOT EXISTS(SELECT name FROM mark_list WHERE name LIKE("P%")); ```
+
+
+| id | name  | class |
+|:--:|:--:|:--:|
+|  1 | Meenu |    12 |
+|  3 | Rohan |    12 |
+|  4 | Kumar |    12 |
+
+3 rows in set (0.00 sec)
+
 ### RELATIONAL OPERATORS
 
 ### ``` SELECT 1=2,1=1; ```
@@ -170,3 +244,42 @@
 |                            10 |                                    9.0939279000 |                                       0.4872490 |
 
 1 row in set (0.00 sec)
+
+### ``` SELECT 1 IN (1,2,76283728,"MEENU"), "PRADEEP" NOT IN ("ROHAN","SNEHA","MEENU"); ```
+
+
+| 1 IN (1,2,76283728,"MEENU") | "PRADEEP" NOT IN ("ROHAN","SNEHA","MEENU") |
+|:--:|:--:|:--:|
+|                           1 |                                          1 |
+
+1 row in set (0.00 sec)
+
+### ``` SELECT 1 IS NOT UNKNOWN, 0 IS NOT UNKNOWN, NULL IS NOT UNKNOWN; ```
+
+
+| 1 IS NOT UNKNOWN | 0 IS NOT UNKNOWN | NULL IS NOT UNKNOWN |
+|:--:|:--:|:--:|
+|                1 |                1 |                   0 |
+
+1 row in set (0.00 sec)
+
+### ``` SELECT 1 IS NULL, 0 IS NULL, NULL IS NOT NULL; ```
+
+
+| 1 IS NULL | 0 IS NULL | NULL IS NOT NULL |
+|:--:|:--:|:--:|
+|         0 |         0 |                0 |
+
+1 row in set (0.00 sec)
+
+### ``` SELECT ISNULL(1+1),ISNULL(1/0); ```
+
+
+| ISNULL(1+1) | ISNULL(1/0) |
+|:--:|:--:|
+|           0 |           1 |
+
+1 row in set, 1 warning (0.00 sec)
+
+
+
