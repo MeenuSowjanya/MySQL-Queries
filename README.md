@@ -2,7 +2,7 @@
 
 ### Basic Queries
 
-show databases;
+show databases;<br>
 +--------------------+
 | Database           |
 +--------------------+
@@ -11,8 +11,8 @@ show databases;
 | performance_schema |
 | sys                |
 | test               |
-+--------------------+
-5 rows in set (0.00 sec)
++--------------------+<br>
+5 rows in set (0.00 sec)<br>
 
 mysql> create database document;   --DDL Command
 Query OK, 1 row affected (0.01 sec)
