@@ -1,0 +1,66 @@
+mysql> create database Supply;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> use Supply;
+Database changed
+mysql> create table suppliers(supplier_no varchar(2) primary key,supplier_name varchar(25) unique not null,status smallint default 0,city varchar(20) not null);
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> create table items(item_no varchar(2) primary key,item_name varchar(25) unique not null,price tinyint not null check(price>=5));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> create table shipments(supplier_no varchar(2) not null,item_no varchar(2) not null,quantity_supplied tinyint default 0,foreign key(supplier_no) references suppliers(supplier_no),foreign key(item_no) references items(item_no));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> desc suppliers;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| supplier_no   | varchar(2)  | NO   | PRI | NULL    |       |
+| supplier_name | varchar(25) | NO   | UNI | NULL    |       |
+| status        | smallint    | YES  |     | 0       |       |
+| city          | varchar(20) | NO   |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> insert into suppliers values("S1","Britannia",10,"Delhi"),("S2","New Bakers",12,"Bangalore");
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> insert into suppliers values("S3","Cookz",10,"Delhi"),("S4","Haldiram",12,"Tamil Nadu");
+Query OK, 2 rows affected (0.00 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> insert into suppliers values("S5","Parle",30,"Telangana"),("S6","Good Day",32,"Tamil Nadu");
+Query OK, 2 rows affected (0.01 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> desc items;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| item_no   | varchar(2)  | NO   | PRI | NULL    |       |
+| item_name | varchar(25) | NO   | UNI | NULL    |       |
+| price     | tinyint     | NO   |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into items values("I1","Milk",30),("I2","Cake",30),("I3","Bread",10),("I4","Milk Bread",12),("I5","Biscuit",30);
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> desc shipments;
++-------------------+------------+------+-----+---------+-------+
+| Field             | Type       | Null | Key | Default | Extra |
++-------------------+------------+------+-----+---------+-------+
+| supplier_no       | varchar(2) | NO   | MUL | NULL    |       |
+| item_no           | varchar(2) | NO   | MUL | NULL    |       |
+| quantity_supplied | tinyint    | YES  |     | 0       |       |
++-------------------+------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> insert into shipments values("S1","I3",30),("S2","I4",30),("S1","I3",10),("S4","I1",12),("S5","I2",30);
+Query OK, 5 rows affected (0.01 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+
