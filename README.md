@@ -84,7 +84,7 @@
 |   7 |   1 |  12 | 1.3333 |    1 |
 
 
-#### Logical Operators
+### Logical Operators
 
 ### ``` SELECT 1 AND 0,1 AND 1,1 AND NULL,0 AND NULL;```
 
@@ -104,4 +104,51 @@
 
 1 row in set (0.00 sec)
 
+### ``` SELECT 1 XOR 0,1 XOR 1,0 OR 0,0 XOR NULL,1 XOR NULL,1 XOR 1 XOR 1; ```
 
+
+| 1 XOR 0 | 1 XOR 1 | 0 OR 0 | 0 XOR NULL | 1 XOR NULL | 1 XOR 1 XOR 1 |
+|:--:|:--:|:--:|:--:|:--:|:--:|
+|       1 |       0 |      0 |       NULL |       NULL |             1 |
+
+1 row in set (0.00 sec)
+
+### ``` SELECT NOT((1 OR 0) AND (1 XOR 1)); ```
+
+
+| NOT((1 OR 0) AND (1 XOR 1)) |
+|:--:|
+|                           1 |
+
+1 row in set (0.00 sec)
+
+### RELATIONAL OPERATORS
+
+### ``` SELECT 1=2,1=1; ```
+
+
+| 1=2 | 1=1 |
+|:--:|:--:|
+|   0 |   1 |
+
+1 row in set (0.00 sec)
+
+### ``` SELECT 1>2,1<1,1<>2,1!=1,1<=>1,1<=2,2>=4; ```
+
+
+| 1>2 | 1<1 | 1<>2 | 1!=1 | 1<=>1 | 1<=2 | 2>=4 |
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+|   0 |   0 |    1 |    0 |     1 |    1 |    0 |
+
+1 row in set (0.00 sec)
+
+### ``` SELECT * FROM students WHERE id BETWEEN 1 AND 3; ```
+
+
+| id | name    | class |
+|:--:|:--:|:--:|
+|  1 | Meenu   |    12 |
+|  2 | Pradeep |    12 |
+|  3 | Rohan   |    12 |
+
+3 rows in set (0.00 sec)
