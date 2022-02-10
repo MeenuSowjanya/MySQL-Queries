@@ -285,7 +285,7 @@ Empty set (0.00 sec)
 
 ## ALTER COMMANDS
 
-```ALTER TABLE students MODIFY name varchar(30),ADD COLUMN blood_group varchar(2) NOT NULL AFTER name;```
+##### ```ALTER TABLE students MODIFY name varchar(30),ADD COLUMN blood_group varchar(2) NOT NULL AFTER name;```
 
 ###### Query OK, 0 rows affected (0.10 sec)
 ###### Records: 0  Duplicates: 0  Warnings: 0
