@@ -1,6 +1,6 @@
 # MySQL Queries
 
- ``` SHOW DATABASES ;```
+ ##### ``` SHOW DATABASES ;```
 
 
 | Database           |
@@ -17,19 +17,19 @@
 
 7 rows in set (0.00 sec)
 
- ``` CREATE DATABASE School; ```
+  ##### ``` CREATE DATABASE School; ```
 
 ##### Query OK, 1 row affected (0.00 sec)
 
- ``` USE School; ```
+  ##### ``` USE School; ```
 
 ##### ``` Database changed```
 
- ``` CREATE TABLE students(id TINYINT PRIMARY KEY CHECK(id>0),name VARCHAR(30) NOT NULL,class TINYINT(2) NOT NULL CHECK (class>0));```
+ ` ##### `` CREATE TABLE students(id TINYINT PRIMARY KEY CHECK(id>0),name VARCHAR(30) NOT NULL,class TINYINT(2) NOT NULL CHECK (class>0));```
 
 ##### Query OK, 0 rows affected, 1 warning (0.04 sec)
 
- ``` DESC students; ```
+  ##### ``` DESC students; ```
 
 
 | Field | Type        | Null | Key | Default | Extra |
@@ -40,13 +40,13 @@
 
 3 rows in set (0.00 sec)
 
-``` INSERT INTO students values(1,"Meenu",12);```
+ ##### ``` INSERT INTO students values(1,"Meenu",12);```
 
 ##### Query OK, 1 row affected (0.00 sec) 
 
 ##### /*After inserting multiple rows :*/
 
-``` SELECT * FROM students; ```
+ ##### ``` SELECT * FROM students; ```
 
 
 | id | name    | class |
@@ -58,7 +58,7 @@
 
 4 rows in set (0.00 sec)
 
- ```UPDATE students SET name="Kumar" WHERE id=4;```
+  ##### ```UPDATE students SET name="Kumar" WHERE id=4;```
 
 ##### Query OK, 1 row affected (0.01 sec)
 
@@ -78,7 +78,7 @@
 
 ## OPERATORS
 
- ``` SELECT 4+3,4-3,4*3,4/3,4%3; /* ARITHMETIC OPERATORS */ ```
+  ##### ``` SELECT 4+3,4-3,4*3,4/3,4%3; /* ARITHMETIC OPERATORS */ ```
 
 
 | 4+3 | 4-3 | 4*3 | 4/3    | 4%3  |
@@ -88,7 +88,7 @@
 
 ### Logical Operators
 
- ``` SELECT 1 AND 0,1 AND 1,1 AND NULL,0 AND NULL;```
+ #####  ``` SELECT 1 AND 0,1 AND 1,1 AND NULL,0 AND NULL;```
 
 
 | 1 AND 0 | 1 AND 1 | 1 AND NULL | 0 AND NULL |
@@ -97,7 +97,7 @@
 
 1 row in set (0.00 sec)
 
- ``` SELECT 1 OR 0,1 OR 1,1 OR NULL,0 OR NULL; ```
+  ##### ``` SELECT 1 OR 0,1 OR 1,1 OR NULL,0 OR NULL; ```
 
 
 | 1 OR 0 | 1 OR 1 | 1 OR NULL | 0 OR NULL |
@@ -106,7 +106,7 @@
 
 1 row in set (0.00 sec)
 
- ``` SELECT 1 XOR 0,1 XOR 1,0 OR 0,0 XOR NULL,1 XOR NULL,1 XOR 1 XOR 1; ```
+ #####  ``` SELECT 1 XOR 0,1 XOR 1,0 OR 0,0 XOR NULL,1 XOR NULL,1 XOR 1 XOR 1; ```
 
 
 | 1 XOR 0 | 1 XOR 1 | 0 OR 0 | 0 XOR NULL | 1 XOR NULL | 1 XOR 1 XOR 1 |
@@ -115,7 +115,7 @@
 
 1 row in set (0.00 sec)
 
- ``` SELECT NOT((1 OR 0) AND (1 XOR 1)); ```
+  ##### ``` SELECT NOT((1 OR 0) AND (1 XOR 1)); ```
 
 
 | NOT((1 OR 0) AND (1 XOR 1)) |
@@ -124,7 +124,7 @@
 
 1 row in set (0.00 sec)
 
- ``` SELECT * FROM students WHERE name LIKE("R%") OR name LIKE("%P") OR name LIKE("ME__U%"); ```
+ #####  ``` SELECT * FROM students WHERE name LIKE("R%") OR name LIKE("%P") OR name LIKE("ME__U%"); ```
 
 
 | id | name    | class |
@@ -135,11 +135,11 @@
 
 3 rows in set (0.00 sec)
 
- ```SELECT * FROM students WHERE id> ANY(SELECT marks FROM mark_list);```
+  ##### ```SELECT * FROM students WHERE id> ANY(SELECT marks FROM mark_list);```
 
 Empty set (0.00 sec)
 
- ```SELECT * FROM students WHERE id< ANY(SELECT marks FROM mark_list);```
+  ##### ```SELECT * FROM students WHERE id< ANY(SELECT marks FROM mark_list);```
 
 
 | id | name    | class |
@@ -151,11 +151,11 @@ Empty set (0.00 sec)
 
 4 rows in set (0.00 sec)
 
- ``` SELECT * FROM students WHERE id IN(SELECT marks FROM mark_list); ```
+  ##### ``` SELECT * FROM students WHERE id IN(SELECT marks FROM mark_list); ```
  
 Empty set (0.00 sec)
 
- ``` SELECT * FROM students WHERE id NOT IN(SELECT marks FROM mark_list); ```
+  ##### ``` SELECT * FROM students WHERE id NOT IN(SELECT marks FROM mark_list); ```
 
 
 | id | name    | class |
@@ -167,7 +167,7 @@ Empty set (0.00 sec)
 
 4 rows in set (0.00 sec)
 
- ``` SELECT * FROM students WHERE id< ALL(SELECT marks FROM mark_list); ```
+ #####  ``` SELECT * FROM students WHERE id< ALL(SELECT marks FROM mark_list); ```
 
 | id | name    | class |
 |:--:|:--:|:--:|
@@ -178,7 +178,7 @@ Empty set (0.00 sec)
 
 4 rows in set (0.00 sec)
 
-``` SELECT * FROM students WHERE EXISTS(SELECT name FROM mark_list WHERE name LIKE("P%")); ```
+ ##### ``` SELECT * FROM students WHERE EXISTS(SELECT name FROM mark_list WHERE name LIKE("P%")); ```
 
 
 | id | name    | class |
@@ -187,7 +187,7 @@ Empty set (0.00 sec)
 
 1 row in set (0.00 sec)
 
- ``` SELECT * FROM students WHERE NOT EXISTS(SELECT name FROM mark_list WHERE name LIKE("P%")); ```
+  ##### ``` SELECT * FROM students WHERE NOT EXISTS(SELECT name FROM mark_list WHERE name LIKE("P%")); ```
 
 
 | id | name  | class |
@@ -200,7 +200,7 @@ Empty set (0.00 sec)
 
 ### RELATIONAL OPERATORS
 
- ``` SELECT 1=2,1=1; ```
+  ##### ``` SELECT 1=2,1=1; ```
 
 
 | 1=2 | 1=1 |
@@ -209,7 +209,7 @@ Empty set (0.00 sec)
 
 1 row in set (0.00 sec)
 
-``` SELECT 1>2,1<1,1<>2,1!=1,1<=>1,1<=2,2>=4; ```
+ ##### ``` SELECT 1>2,1<1,1<>2,1!=1,1<=>1,1<=2,2>=4; ```
 
 
 | 1>2 | 1<1 | 1<>2 | 1!=1 | 1<=>1 | 1<=2 | 2>=4 |
@@ -218,7 +218,7 @@ Empty set (0.00 sec)
 
 1 row in set (0.00 sec)
 
-``` SELECT * FROM students WHERE id BETWEEN 1 AND 3; ```
+ ##### ``` SELECT * FROM students WHERE id BETWEEN 1 AND 3; ```
 
 
 | id | name    | class |
@@ -229,7 +229,7 @@ Empty set (0.00 sec)
 
 3 rows in set (0.00 sec)
 
-``` SELECT * FROM students WHERE id NOT BETWEEN 1 AND 3; ```
+ ##### ``` SELECT * FROM students WHERE id NOT BETWEEN 1 AND 3; ```
 
 
 | id | name  | class |
@@ -238,7 +238,7 @@ Empty set (0.00 sec)
 
 1 row in set (0.00 sec)
 
-``` SELECT COALESCE(NULL,NULL,10,NULL,1),GREATEST(1.00787918,9.0939279,1,2,1.2827392793),LEAST(1.3923920,1.2792883,0.487249,0.7293983,6); ```
+ ##### ``` SELECT COALESCE(NULL,NULL,10,NULL,1),GREATEST(1.00787918,9.0939279,1,2,1.2827392793),LEAST(1.3923920,1.2792883,0.487249,0.7293983,6); ```
 
 
 | COALESCE(NULL,NULL,10,NULL,1) | GREATEST(1.00787918,9.0939279,1,2,1.2827392793) | LEAST(1.3923920,1.2792883,0.487249,0.7293983,6) |
@@ -247,7 +247,7 @@ Empty set (0.00 sec)
 
 1 row in set (0.00 sec)
 
-``` SELECT 1 IN (1,2,76283728,"MEENU"), "PRADEEP" NOT IN ("ROHAN","SNEHA","MEENU"); ```
+ ##### ``` SELECT 1 IN (1,2,76283728,"MEENU"), "PRADEEP" NOT IN ("ROHAN","SNEHA","MEENU"); ```
 
 
 | 1 IN (1,2,76283728,"MEENU") | "PRADEEP" NOT IN ("ROHAN","SNEHA","MEENU") |
@@ -256,7 +256,7 @@ Empty set (0.00 sec)
 
 1 row in set (0.00 sec)
 
-``` SELECT 1 IS NOT UNKNOWN, 0 IS NOT UNKNOWN, NULL IS NOT UNKNOWN; ```
+ ##### ``` SELECT 1 IS NOT UNKNOWN, 0 IS NOT UNKNOWN, NULL IS NOT UNKNOWN; ```
 
 
 | 1 IS NOT UNKNOWN | 0 IS NOT UNKNOWN | NULL IS NOT UNKNOWN |
@@ -265,7 +265,7 @@ Empty set (0.00 sec)
 
 1 row in set (0.00 sec)
 
-``` SELECT 1 IS NULL, 0 IS NULL, NULL IS NOT NULL; ```
+ ##### ``` SELECT 1 IS NULL, 0 IS NULL, NULL IS NOT NULL; ```
 
 
 | 1 IS NULL | 0 IS NULL | NULL IS NOT NULL |
@@ -274,7 +274,7 @@ Empty set (0.00 sec)
 
 1 row in set (0.00 sec)
 
-``` SELECT ISNULL(1+1),ISNULL(1/0); ```
+ ##### ``` SELECT ISNULL(1+1),ISNULL(1/0); ```
 
 
 | ISNULL(1+1) | ISNULL(1/0) |
@@ -290,7 +290,7 @@ Empty set (0.00 sec)
 ##### Query OK, 0 rows affected (0.10 sec)
 ##### Records: 0  Duplicates: 0  Warnings: 0
 
-```DESC students;``` 
+ ##### ```DESC students;``` 
 
 
 | Field       | Type        | Null | Key | Default | Extra |
