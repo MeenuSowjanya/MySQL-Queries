@@ -1,7 +1,7 @@
 # MySQL Queries
 
  ``` SHOW DATABASES ;```
-
+<font size="3">
 
 | Database           |
 |:------------------:|
@@ -12,12 +12,14 @@
 | performance_schema |
 | sys                |
 | test               |
+ 
+</font>
 
 7 rows in set (0.00 sec)
 
  ``` CREATE DATABASE School; ```
 
-Query OK, 1 row affected (0.00 sec)
+##### Query OK, 1 row affected (0.00 sec)
 
  ``` USE School; ```
 
@@ -25,7 +27,7 @@ Query OK, 1 row affected (0.00 sec)
 
  ``` CREATE TABLE students(id TINYINT PRIMARY KEY CHECK(id>0),name VARCHAR(30) NOT NULL,class TINYINT(2) NOT NULL CHECK (class>0));```
 
-Query OK, 0 rows affected, 1 warning (0.04 sec)
+##### Query OK, 0 rows affected, 1 warning (0.04 sec)
 
  ``` DESC students; ```
 
@@ -40,7 +42,7 @@ Query OK, 0 rows affected, 1 warning (0.04 sec)
 
 ``` INSERT INTO students values(1,"Meenu",12);```
 
-Query OK, 1 row affected (0.00 sec) 
+##### Query OK, 1 row affected (0.00 sec) 
 
 ##### /*After inserting multiple rows :*/
 
@@ -58,9 +60,9 @@ Query OK, 1 row affected (0.00 sec)
 
  ```UPDATE students SET name="Kumar" WHERE id=4;```
 
-Query OK, 1 row affected (0.01 sec)
+##### Query OK, 1 row affected (0.01 sec)
 
-Rows matched: 1  Changed: 1  Warnings: 0
+##### Rows matched: 1  Changed: 1  Warnings: 0
 
 ##### /*RESULT :*/
 
