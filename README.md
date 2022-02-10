@@ -1,7 +1,7 @@
 # MySQL Queries
 
  ``` SHOW DATABASES ;```
-<font size="1">
+
 
 | Database           |
 |:------------------:|
@@ -13,7 +13,7 @@
 | sys                |
 | test               |
  
-</font>
+
 
 7 rows in set (0.00 sec)
 
@@ -287,4 +287,18 @@ Empty set (0.00 sec)
 
 ```ALTER TABLE students MODIFY name varchar(30),ADD COLUMN blood_group varchar(2) NOT NULL AFTER name;```
 
+##### Query OK, 0 rows affected (0.10 sec)
+##### Records: 0  Duplicates: 0  Warnings: 0
+
+```DESC students;``` 
+
+
+| Field       | Type        | Null | Key | Default | Extra |
+|:--:|:--:|:--:|
+| id          | tinyint     | NO   | PRI | NULL    |       |
+| name        | varchar(30) | YES  |     | NULL    |       |
+| blood_group | varchar(2)  | NO   |     | NULL    |       |
+| class       | tinyint     | NO   |     | NULL    |       |
+
+4 rows in set (0.00 sec)
 
