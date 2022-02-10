@@ -283,7 +283,7 @@ Empty set (0.00 sec)
 
 1 row in set, 1 warning (0.00 sec)
 
-## ALTER COMMANDS
+## ALTER 
 
 ##### ```ALTER TABLE students MODIFY name varchar(30),ADD COLUMN blood_group varchar(2) NOT NULL AFTER name;```
 
@@ -301,4 +301,70 @@ Empty set (0.00 sec)
 | class       | tinyint     | NO   |     | NULL    |       |
 
 4 rows in set (0.00 sec)
+
+##### ```ALTER TABLE students DROP COLUMN blood_group;```
+
+###### Query OK, 0 rows affected (0.10 sec)
+###### Records: 0  Duplicates: 0  Warnings: 0
+
+ ##### ```DESC students;``` 
+
+
+| Field       | Type        | Null | Key | Default | Extra |
+|:--:|:--:|:--:|:--:|:--:|:--:|
+| id          | tinyint     | NO   | PRI | NULL    |       |
+| name        | varchar(30) | YES  |     | NULL    |       |
+| class       | tinyint     | NO   |     | NULL    |       |
+
+3 rows in set (0.00 sec)
+
+### DELETE AND DROP QUERIES
+
+##### ```DROP TABLE mark_list;```
+
+###### Query OK, 0 rows affected (0.10 sec)
+
+##### ``` DELETE FROM students WHERE class=12; ```
+
+###### Query OK, 4 rows affected (0.00 sec)
+
+##### ```SELECT * FROM students; ```
+
+###### Empty set (0.00 sec)
+
+##### ```SHOW TABLES;```
+
+
+| Tables_in_School |
+|:--:|
+| students         |
+
+1 row in set (0.00 sec)
+
+##### ```DROP TABLE students;```
+
+###### Query OK, 0 rows affected (0.02 sec)
+
+##### ```SHOW TABLES; ```
+
+###### Empty set (0.00 sec)
+
+##### ``` DROP DATABASE School; ```
+
+###### Query OK, 0 rows affected (0.02 sec)
+
+##### ``` SHOW DATABASES; ```
+
+
+| Database           |
+|:--:|
+| Supply             |
+| document           |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| test               |
+
+7 rows in set (0.00 sec)
 
