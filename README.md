@@ -31,7 +31,7 @@
 
 
 | Field | Type        | Null | Key | Default | Extra |
-|:--:|:--|--|--|
+|:--:|:--:|:--:|:--:|
 | id    | tinyint     | NO   | PRI | NULL    |       |
 | name  | varchar(30) | NO   |     | NULL    |       |
 | class | tinyint     | NO   |     | NULL    |       |
@@ -73,6 +73,15 @@
 |  4 | Kumar   |    12 |
 
 4 rows in set (0.00 sec)      
+
+## OPERATORS
+
+### ``` SELECT 4+3,4-3,4*3,4/3,4%3; /* ARITHMETIC OPERATORS */ ```
+
+
+| 4+3 | 4-3 | 4*3 | 4/3    | 4%3  |
+|:--:|:--:|:--:|:--:|:--:|
+|   7 |   1 |  12 | 1.3333 |    1 |
 
 
 
