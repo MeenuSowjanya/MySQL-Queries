@@ -281,5 +281,8 @@ Empty set (0.00 sec)
 
 1 row in set, 1 warning (0.00 sec)
 
+## ALTER COMMANDS
+
+```ALTER TABLE students MODIFY name varchar(30),ADD COLUMN blood_group varchar(2) NOT NULL AFTER name;```
 
 
