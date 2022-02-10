@@ -1,7 +1,7 @@
 # MySQL Queries
 
  ``` SHOW DATABASES ;```
-<font size="3">
+<font size="1">
 
 | Database           |
 |:------------------:|
