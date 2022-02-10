@@ -20,13 +20,7 @@ mysql> desc uSquare;
 4 rows in set (0.01 sec)
 
 mysql> create table United(foreign key(id) references uSquare(id),name varchar(30) not null,mark tinyint default "Absent");
-ERROR 1072 (42000): Key column 'id' doesn't exist in table
-mysql> create table United(id foreign key(id) references uSquare(id),name varchar(30) not null,mark tinyint default "Absent");
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'foreign key(id) references uSquare(id),name varchar(30) not null,mark tinyint de' at line 1
-mysql> create table United(roll tinyint primary key,name varchar(20) not null,id tinyint,marks default "Absent",foreign key(id) references uSquare(id));
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'default "Absent",foreign key(id) references uSquare(id))' at line 1
-mysql> create table United(roll tinyint primary key,name varchar(20) not null,id tinyint,marks tinyint default "Absent",foreign key(id) references uSquare(id));
-ERROR 1067 (42000): Invalid default value for 'marks'
+
 mysql> create table United(roll tinyint primary key,name varchar(20) not null,id tinyint,marks tinyint default 0,foreign key(id) references uSquare(id));
 Query OK, 0 rows affected (0.04 sec)
 
@@ -72,23 +66,11 @@ mysql> select * from uSquare;
 mysql> insert into United(roll,name,marks) values(4,"Meenu",100);
 Query OK, 1 row affected (0.01 sec)
 
-mysql> insert into United values(4,"Meenu",4,100);
-ERROR 1062 (23000): Duplicate entry '4' for key 'United.PRIMARY'
-mysql> insert into United values(5,"Meenu",10,100);
-ERROR 1452 (23000): Cannot add or update a child row: a foreign key constraint fails (`test`.`United`, CONSTRAINT `United_ibfk_1` FOREIGN KEY (`id`) REFERENCES `uSquare` (`id`))
+
 mysql> insert into United values(6,"Meenu",1,100);
 Query OK, 1 row affected (0.00 sec)
 
-mysql> alter table uSquare modify(id auto_increment);
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(id auto_increment)' at line 1
-mysql> alter table uSquare change id id tinyint primary key auto_increment;
-ERROR 1068 (42000): Multiple primary key defined
-mysql> alter table uSquare change id id tinyint auto_increment;
-ERROR 1833 (HY000): Cannot change column 'id': used in a foreign key constraint 'United_ibfk_1' of table 'test.United'
-mysql> alter table uSquare modify(roll auto_increment);
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(roll auto_increment)' at line 1
-mysql> alter table uSquare modify roll auto_increment;
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'auto_increment' at line 1
+
 mysql> alter table uSquare change roll roll tinyint auto_increment;
 Query OK, 2 rows affected (0.10 sec)
 Records: 2  Duplicates: 0  Warnings: 0
