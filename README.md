@@ -84,6 +84,24 @@
 |   7 |   1 |  12 | 1.3333 |    1 |
 
 
+#### Logical Operators
 
+### ``` SELECT 1 AND 0,1 AND 1,1 AND NULL,0 AND NULL;```
+
+
+| 1 AND 0 | 1 AND 1 | 1 AND NULL | 0 AND NULL |
+|:--:|:--:|:--:|:--|
+|       0 |       1 |       NULL |          0 |
+
+1 row in set (0.00 sec)
+
+### ``` SELECT 1 OR 0,1 OR 1,1 OR NULL,0 OR NULL; ```
+
+
+| 1 OR 0 | 1 OR 1 | 1 OR NULL | 0 OR NULL |
+|:--:|:--:|:--:|:--:|
+|      1 |      1 |         1 |      NULL |
+
+1 row in set (0.00 sec)
 
 
