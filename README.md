@@ -1,5 +1,6 @@
 # MySQL Queries
 
+``` SHOW DATABASES ```
 
 
 
