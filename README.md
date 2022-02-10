@@ -4,7 +4,7 @@
 
 
 | Database           |
-|:..................:|
+|:------------------:|
 | Supply             |
 | document           |
 | information_schema |
