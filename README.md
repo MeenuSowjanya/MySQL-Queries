@@ -31,7 +31,7 @@
 
 
 | Field | Type        | Null | Key | Default | Extra |
-|:--:|:--:|:--:|:--:|:--:|
+|:--:|:--:|:--:|:--:|:--:|:--:|
 | id    | tinyint     | NO   | PRI | NULL    |       |
 | name  | varchar(30) | NO   |     | NULL    |       |
 | class | tinyint     | NO   |     | NULL    |       |
