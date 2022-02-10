@@ -152,3 +152,21 @@
 |  3 | Rohan   |    12 |
 
 3 rows in set (0.00 sec)
+
+### ``` SELECT * FROM students WHERE id NOT BETWEEN 1 AND 3; ```
+
+
+| id | name  | class |
+|:--:|:--:|:--:|
+|  4 | Kumar |    12 |
+
+1 row in set (0.00 sec)
+
+### ``` SELECT COALESCE(NULL,NULL,10,NULL,1),GREATEST(1.00787918,9.0939279,1,2,1.2827392793),LEAST(1.3923920,1.2792883,0.487249,0.7293983,6); ```
+
+
+| COALESCE(NULL,NULL,10,NULL,1) | GREATEST(1.00787918,9.0939279,1,2,1.2827392793) | LEAST(1.3923920,1.2792883,0.487249,0.7293983,6) |
+|:--:|:--:|:--:|
+|                            10 |                                    9.0939279000 |                                       0.4872490 |
+
+1 row in set (0.00 sec)
