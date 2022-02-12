@@ -368,3 +368,26 @@ Empty set (0.00 sec)
 
 7 rows in set (0.00 sec)
 
+##### ``` USE Supply;```
+
+## AGGREGATE FUNCTIONS 
+
+##### ``` SELECT COUNT(*),COUNT(DISTINCT(city)) FROM suppliers; ```
+
+
+| COUNT(*) | COUNT(DISTINCT(city)) |
+|:--:|:--:|
+|        6 |                     4 |
+
+1 row in set (0.00 sec)
+
+##### ``` SELECT MAX(status),MIN(status),SUM(status),AVG(status) FROM suppliers; ```
+
+
+| MAX(status) | MIN(status) | SUM(status) | AVG(status) |
+|:--:|:--:|:--:|:--:|
+|          32 |          10 |         106 |     17.6667 |
+
+1 row in set (0.00 sec)
+
+
