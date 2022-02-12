@@ -402,3 +402,25 @@ Empty set (0.00 sec)
 | 0x465064                         | MEENU12              | meenu          | ENU SOWJA                    | MEENU SOWJANYA          | MEENU SOWJANYA                          |                       14 |
 
 1 row in set (0.00 sec)
+
+### Numeric Functions
+
+##### ``` SELECT MOD(11,4),POW(3,2),ROUND(15.98392,2),SIGN(-15),SQRT(26),TRUNCATE(15.878,0); ```
+
+
+| MOD(11,4) | POW(3,2) | ROUND(15.98392,2) | SIGN(-15) | SQRT(26)           | TRUNCATE(15.878,0) |
+|:--:|:--:|:--:|:--:|:--:|:--:|
+|         3 |        9 |             15.98 |        -1 | 5.0990195135927845 |                 15 |
+
+1 row in set (0.00 sec)
+
+### Date and Time Functions
+
+##### ``` SELECT CURDATE(),DATE("2003-09-24 03:05:00"),MONTH("2003-09-24"),YEAR("2003-09-24"),NOW(),SYSDATE(); ```
+
+
+| CURDATE()  | DATE("2003-09-24 03:05:00") | MONTH("2003-09-24") | YEAR("2003-09-24") | NOW()               | SYSDATE()           |
+|:--:|:--:|:--:|:--:|:--:|:--:|
+| 2022-02-12 | 2003-09-24                  |                   9 |               2003 | 2022-02-12 11:47:54 | 2022-02-12 11:47:54 |
+
+1 row in set (0.00 sec)
