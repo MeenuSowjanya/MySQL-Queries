@@ -390,4 +390,15 @@ Empty set (0.00 sec)
 
 1 row in set (0.00 sec)
 
+## MySQL Functions
 
+### String Functions 
+
+##### ``` SELECT CHAR(70,80,100), CONCAT("MEENU","12"),LCASE("MEENU"),SUBSTR("MEENU SOWJANYA",3,9),UCASE("Meenu Sowjanya"),TRIM("          MEENU SOWJANYA       "),LENGTH("MEENU SOWJANYA"); ```
+
+
+| CHAR(70,80,100)                  | CONCAT("MEENU","12") | LCASE("MEENU") | SUBSTR("MEENU SOWJANYA",3,9) | UCASE("Meenu Sowjanya") | TRIM("          MEENU SOWJANYA       ") | LENGTH("MEENU SOWJANYA") |
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+| 0x465064                         | MEENU12              | meenu          | ENU SOWJA                    | MEENU SOWJANYA          | MEENU SOWJANYA                          |                       14 |
+
+1 row in set (0.00 sec)
