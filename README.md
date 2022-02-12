@@ -407,7 +407,6 @@ Empty set (0.00 sec)
 
 ##### ``` SELECT MOD(11,4),POW(3,2),ROUND(15.98392,2),SIGN(-15),SQRT(26),TRUNCATE(15.878,0); ```
 
-
 | MOD(11,4) | POW(3,2) | ROUND(15.98392,2) | SIGN(-15) | SQRT(26)           | TRUNCATE(15.878,0) |
 |:--:|:--:|:--:|:--:|:--:|:--:|
 |         3 |        9 |             15.98 |        -1 | 5.0990195135927845 |                 15 |
@@ -418,9 +417,87 @@ Empty set (0.00 sec)
 
 ##### ``` SELECT CURDATE(),DATE("2003-09-24 03:05:00"),MONTH("2003-09-24"),YEAR("2003-09-24"),NOW(),SYSDATE(); ```
 
-
 | CURDATE()  | DATE("2003-09-24 03:05:00") | MONTH("2003-09-24") | YEAR("2003-09-24") | NOW()               | SYSDATE()           |
 |:--:|:--:|:--:|:--:|:--:|:--:|
 | 2022-02-12 | 2003-09-24                  |                   9 |               2003 | 2022-02-12 11:47:54 | 2022-02-12 11:47:54 |
 
 1 row in set (0.00 sec)
+
+## JOINS
+
+##### ``` SELECT supp.supplier_name,supp.city,ship.quantity_supplied FROM suppliers supp INNER JOIN shipments ship ON ship.supplier_no=supp.supplier_no; ```
+
+| supplier_name | city       | quantity_supplied |
+|:--:|:--:|:--:|
+| Britannia     | Delhi      |                30 |
+| New Bakers    | Bangalore  |                30 |
+| Britannia     | Delhi      |                10 |
+| Haldiram      | Tamil Nadu |                12 |
+| Parle         | Telangana  |                30 |
+
+5 rows in set (0.00 sec)
+
+##### ``` SELECT supp.supplier_name,supp.city,ship.quantity_supplied FROM suppliers supp LEFT JOIN shipments ship ON ship.supplier_no=supp.supplier_no; ```
+
+| supplier_name | city       | quantity_supplied |
+|:--:|:--:|:--:|
+| Britannia     | Delhi      |                30 |
+| Britannia     | Delhi      |                10 |
+| New Bakers    | Bangalore  |                30 |
+| Cookz         | Delhi      |              NULL |
+| Haldiram      | Tamil Nadu |                12 |
+| Parle         | Telangana  |                30 |
+| Good Day      | Tamil Nadu |              NULL |
+
+7 rows in set (0.00 sec)
+
+##### ``` SELECT supp.supplier_name,supp.city,ship.quantity_supplied FROM suppliers supp RIGHT JOIN shipments ship ON ship.supplier_no=supp.supplier_no; ```
+
+| supplier_name | city       | quantity_supplied |
+|:--:|:--:|:--:|
+| Britannia     | Delhi      |                30 |
+| New Bakers    | Bangalore  |                30 |
+| Britannia     | Delhi      |                10 |
+| Haldiram      | Tamil Nadu |                12 |
+| Parle         | Telangana  |                30 |
+
+5 rows in set (0.00 sec)
+
+##### ``` SELECT supp.supplier_name,supp.city,ship.quantity_supplied FROM suppliers supp CROSS JOIN shipments ship; ```
+
+| supplier_name | city       | quantity_supplied |
+|:--:|:--:|:--:|
+| Britannia     | Delhi      |                30 |
+| Britannia     | Delhi      |                12 |
+| Britannia     | Delhi      |                10 |
+| Britannia     | Delhi      |                30 |
+| Britannia     | Delhi      |                30 |
+| New Bakers    | Bangalore  |                30 |
+| New Bakers    | Bangalore  |                12 |
+| New Bakers    | Bangalore  |                10 |
+| New Bakers    | Bangalore  |                30 |
+| New Bakers    | Bangalore  |                30 |
+| Cookz         | Delhi      |                30 |
+| Cookz         | Delhi      |                12 |
+| Cookz         | Delhi      |                10 |
+| Cookz         | Delhi      |                30 |
+| Cookz         | Delhi      |                30 |
+| Haldiram      | Tamil Nadu |                30 |
+| Haldiram      | Tamil Nadu |                12 |
+| Haldiram      | Tamil Nadu |                10 |
+| Haldiram      | Tamil Nadu |                30 |
+| Haldiram      | Tamil Nadu |                30 |
+| Parle         | Telangana  |                30 |
+| Parle         | Telangana  |                12 |
+| Parle         | Telangana  |                10 |
+| Parle         | Telangana  |                30 |
+| Parle         | Telangana  |                30 |
+| Good Day      | Tamil Nadu |                30 |
+| Good Day      | Tamil Nadu |                12 |
+| Good Day      | Tamil Nadu |                10 |
+| Good Day      | Tamil Nadu |                30 |
+| Good Day      | Tamil Nadu |                30 |
+
+30 rows in set (0.00 sec)
+
+
